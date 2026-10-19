@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#030711">
+<title>JANGRESON STREAMING | Entretenimento</title>
+<meta name="description" content="Conheça os planos Jangreson Streaming. Consulte opções de entretenimento e atendimento pelo WhatsApp.">
+
+<style>
+:root {
+  --blue: #00cfff;
+  --dark: #030711;
+  --panel: #081629;
+  --white: #f5faff;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  color: var(--white);
+  background: var(--dark);
+  font-family: Arial, Helvetica, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+.container { width: min(1100px, 92%); margin: auto; }
+header {
+  background: rgba(3,7,17,.96);
+  border-bottom: 1px solid #075477;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.nav {
+  min-height: 76px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.logo {
+  font-size: 21px;
+  font-weight: 900;
+  font-style: italic;
+  text-shadow: 0 0 15px #00bfff77;
+}
+.logo span { color: var(--blue); }
+nav { display: flex; gap: 20px; font-size: 14px; }
+nav a:hover { color: var(--blue); }
+.btn {
+  display: inline-block;
+  background: linear-gradient(110deg,#00a9ed,#00e0ff);
+  color: #00101b;
+  font-weight: 900;
+  padding: 14px 20px;
+  border-radius: 10px;
+  border: 0;
+  text-align: center;
+  transition: .2s;
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 0 22px #00cfff55; }
+.hero {
+  padding: 78px 0 65px;
+  background:
+    radial-gradient(ellipse at 80% 20%,#073d68 0,transparent 40%),
+    radial-gradient(ellipse at 10% 70%,#06304c 0,transparent 40%),
+    var(--dark);
+  border-bottom: 1px solid #0879a3;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 36px;
+}
+.tag {
+  color: var(--blue);
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+h1 { font-size: clamp(40px,6vw,70px); line-height: .98; margin: 18px 0; }
+h1 span, .blue { color: var(--blue); }
+.hero p { color: #c2d0e0; line-height: 1.8; max-width: 530px; }
+.hero-art {
+  min-height: 280px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #00cfff88;
+  border-radius: 28px;
+  background: linear-gradient(145deg,#0c2947,#02050c 70%);
+  box-shadow: 0 0 45px #00bfff18,inset 0 0 40px #00bfff0c;
+  text-align: center;
+  padding: 24px;
+}
+.rocket { font-size: 65px; filter: drop-shadow(0 0 15px #00cfff); }
+.hero-art strong { font-size: 26px; display: block; margin: 10px; }
+.hero-art p { margin: 0; }
+section { padding: 65px 0; }
+.section-head { text-align: center; margin-bottom: 35px; }
+.section-head h2 { font-size: clamp(27px,4vw,40px); margin: 0 0 12px; }
+.section-head p { color: #9eb2c8; line-height: 1.6; }
+.features {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 15px;
+}
+.feature {
+  padding: 25px 12px;
+  background: var(--panel);
+  border: 1px solid #123957;
+  border-radius: 15px;
+  text-align: center;
+}
+.feature .emoji { font-size: 36px; }
+.feature h3 { margin: 14px 0 8px; }
+.feature p { color: #a7bacd; font-size: 13px; line-height: 1.5; }
+#planos { background: linear-gradient(180deg,#050b15,#071629,#050b15); }
+.plans {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 18px;
+}
+.plan {
+  position: relative;
+  padding: 27px 18px;
+  background: linear-gradient(145deg,#0b2038,#030914);
+  border: 1px solid #0876a7;
+  border-radius: 17px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.plan.best {
+  border: 2px solid #ffdc24;
+  box-shadow: 0 0 22px #ffdc241a;
+}
+.plan .period { color: #c6d8eb; font-weight: bold; }
+.price { font-size: 37px; font-weight: 900; margin: 18px 0 6px; }
+.price small { font-size: 15px; }
+.plan .detail { color: #a9bed1; font-size: 13px; margin-bottom: 22px; }
+.plan .btn { margin-top: auto; font-size: 14px; }
+.popular {
+  color: #111;
+  background: #ffdc24;
+  padding: 7px;
+  margin: -27px -18px 22px;
+  border-radius: 14px 14px 0 0;
+  font-weight: 900;
+  font-size: 12px;
+}
+.notice {
+  text-align: center;
+  color: #a9bed1;
+  font-size: 13px;
+  line-height: 1.6;
+  margin-top: 25px;
+}
+.devices {
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  gap: 12px;
+}
+.device {
+  text-align: center;
+  padding: 18px 5px;
+  background: #081629;
+  border-radius: 12px;
+  border: 1px solid #133953;
+}
+.device span { display: block; font-size: 30px; margin-bottom: 10px; }
+.cta {
+  text-align: center;
+  background: radial-gradient(ellipse at center,#073b59,#030711 70%);
+  border-top: 1px solid #0879a3;
+  border-bottom: 1px solid #0879a3;
+}
+.cta h2 { font-size: clamp(28px,5vw,43px); }
+.cta p { color: #c0cede; line-height: 1.7; }
+footer { padding: 28px 0; text-align: center; color: #92a6ba; font-size: 12px; line-height: 1.8; }
+footer strong { color: var(--blue); }
+.whatsapp-float {
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 8;
+  background: #20c86a;
+  color: #001c0b;
+  border-radius: 50px;
+  padding: 15px 18px;
+  font-weight: 900;
+  box-shadow: 0 4px 22px #0008;
+}
+@media(max-width:760px) {
+  .nav { padding: 14px 0; flex-wrap: wrap; }
+  nav { order: 3; width: 100%; justify-content: space-between; gap: 8px; }
+  nav a { font-size: 12px; }
+  .nav > .btn { padding: 11px 12px; font-size: 12px; }
+  .hero { padding: 48px 0; }
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-art { min-height: 210px; }
+  .features { grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .plans { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+  .plan { padding: 23px 12px; }
+  .popular { margin: -23px -12px 20px; }
+  .price { font-size: 30px; }
+  .plan .btn { padding: 12px 7px; font-size: 12px; }
+  .devices { grid-template-columns: repeat(3,1fr); }
+  section { padding: 48px 0; }
+}
+@media(max-width:360px) {
+  .plans { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+
+<body>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#inicio">🚀 JANGRESON <span>STREAMING</span></a>
+    <nav aria-label="Menu principal">
+      <a href="#inicio">Início</a>
+      <a href="#categorias">Conteúdos</a>
+      <a href="#planos">Planos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn" href="#planos">VER PLANOS</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="tag">ENTRETENIMENTO EM UM SÓ LUGAR</div>
+      <h1>TUDO EM<br><span>UM SÓ LUGAR!</span></h1>
+      <p>
+        Conheça as opções de entretenimento da Jangreson Streaming.
+        Confira nossos planos e consulte pelo WhatsApp os conteúdos
+        disponíveis e os dispositivos compatíveis.
+      </p>
+      <a class="btn" href="#planos">🚀 CONHECER OS PLANOS</a>
+    </div>
+    <div class="hero-art">
+      <div>
+        <div class="rocket">🚀</div>
+        <strong>JANGRESON<br><span class="blue">STREAMING</span></strong>
+        <p>Transm itindo conteúdo, conectando pessoas!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="categorias">
+  <div class="container">
+    <div class="section-head">
+      <h2>UM UNIVERSO DE <span class="blue">ENTRETENIMENTO</span></h2>
+      <p>Explore as categorias e consulte a disponibilidade dos conteúdos.</p>
+    </div>
+    <div class="features">
+      <article class="feature">
+        <div class="emoji">📺</div>
+        <h3>Canais</h3>
+        <p>Consulte opções de canais e programação.</p>
+      </article>
+      <article class="feature">
+        <div class="emoji">🎬</div>
+        <h3>Filmes</h3>
+        <p>Consulte os títulos disponíveis no catálogo.</p>
+      </article>
+      <article class="feature">
+        <div class="emoji">🍿</div>
+        <h3>Séries e novelas</h3>
+        <p>Consulte opções de séries e novelas.</p>
+      </article>
+      <article class="feature">
+        <div class="emoji">⚽</div>
+        <h3>Esportes</h3>
+        <p>Consulte a programação esportiva disponível.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="planos">
+  <div class="container">
+    <div class="section-head">
+      <h2>PLANOS E <span class="blue">PROMOÇÕES</span></h2>
+      <p>Escolha a duração desejada e consulte as condições pelo WhatsApp.</p>
+    </div>
+    <div class="plans">
+      <article class="plan">
+        <div class="period">1 MÊS</div>
+        <div class="price"><small>R$</small> 20,00</div>
+        <p class="detail">Plano mensal</p>
+        <a class="btn contratar" data-plano="1 mês - R$ 20,00" href="#">CONTRATAR</a>
+      </article>
+      <article class="plan">
+        <div class="period">2 MESES</div>
+        <div class="price"><small>R$</small> 35,00</div>
+        <p class="detail">Consulte as condições</p>
+        <a class="btn contratar" data-plano="2 meses - R$ 35,00" href="#">CONTRATAR</a>
+      </article>
+      <article class="plan">
+        <div class="period">3 MESES</div>
+        <div class="price"><small>R$</small> 55,00</div>
+        <p class="detail">Plano trimestral</p>
+        <a class="btn contratar" data-plano="3 meses - R$ 55,00" href="#">CONTRATAR</a>
+      </article>
+      <article class="plan">
+        <div class="period">4 MESES</div>
+        <div class="price"><small>R$</small> 90,00</div>
+        <p class="detail">Consulte as condições</p>
+        <a class="btn contratar" data-plano="4 meses - R$ 90,00" href="#">CONTRATAR</a>
+      </article>
+      <article class="plan best">
+        <div class="popular">⭐ PLANO EM DESTAQUE</div>
+        <div class="period">6 MESES</div>
+        <div class="price"><small>R$</small> 100,00</div>
+        <p class="detail">Plano semestral</p>
+        <a class="btn contratar" data-plano="6 meses - R$ 100,00" href="#">CONTRATAR</a>
+      </article>
+      <article class="plan">
+        <div class="period">12 MESES</div>
+        <div class="price"><small>R$</small> 180,00</div>
+        <p class="detail">Plano anual</p>
+        <a class="btn contratar" data-plano="12 meses - R$ 180,00" href="#">CONTRATAR</a>
+      </article>
+    </div>
+    <p class="notice">
+      Valores apresentados conforme a tabela informada. Confirme validade,
+      disponibilidade, condições de pagamento e compatibilidade antes de contratar.
+    </p>
+  </div>
+</section>
+
+<section id="dispositivos">
+  <div class="container">
+    <div class="section-head">
+      <h2>ASSISTA NOS SEUS <span class="blue">DISPOSITIVOS</span></h2>
+      <p>Consulte quais dispositivos e aplicativos são compatíveis com o serviço.</p>
+    </div>
+    <div class="devices">
+      <div class="device"><span>📺</span>TV Smart</div>
+      <div class="device"><span>📱</span>Celular</div>
+      <div class="device"><span>🖥️</span>Computador</div>
+      <div class="device"><span>📲</span>Tablet</div>
+      <div class="device"><span>📡</span>TV Box</div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contato">
+  <div class="container">
+    <div class="rocket">🚀</div>
+    <h2>PRONTO PARA <span class="blue">COMEÇAR?</span></h2>
+    <p>Fale com a nossa equipe, tire suas dúvidas e consulte os planos disponíveis.</p>
+    <a class="btn" href="https://wa.me/5591992347098?text=Ol%C3%A1%2C%20quero%20conhecer%20os%20planos%20da%20Jangreson%20Streaming." target="_blank" rel="noopener noreferrer">
+      FALAR NO WHATSAPP
+    </a>
+    <p>WhatsApp: (91) 99234-7098</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <strong>🚀 JANGRESON STREAMING</strong><br>
+    Entretenimento e atendimento em um só lugar.<br>
+    © <span id="ano"></span> Jangreson Streaming. Todos os direitos reservados.<br>
+    Os conteúdos dependem de disponibilidade e de autorização dos respectivos titulares.
+  </div>
+</footer>
+
+<a class="whatsapp-float"
+   href="https://wa.me/5591992347098?text=Ol%C3%A1%2C%20quero%20informa%C3%A7%C3%B5es%20sobre%20os%20planos."
+   target="_blank" rel="noopener noreferrer" aria-label="Falar pelo WhatsApp">WhatsApp</a>
+
+<script>
+document.getElementById("ano").textContent = new Date().getFullYear();
+
+document.querySelectorAll(".contratar").forEach(function(botao) {
+  var plano = botao.getAttribute("data-plano");
+  var mensagem = "Olá! Tenho interesse no plano " + plano +
+    " da Jangreson Streaming. Poderia me informar as condições?";
+  botao.href = "https://wa.me/5591992347098?text=" +
+    encodeURIComponent(mensagem);
+  botao.target = "_blank";
+  botao.rel = "noopener noreferrer";
+});
+</script>
+</body>
+</html>
